@@ -30,20 +30,12 @@ type Product struct {
 	Image  *string            `json:"image" bson:"image"`
 }
 
-/*type ProductUser struct {
-	ID     primitive.ObjectID `json:"_id" bson:"_id"`
-	Name   *string            `json:"name" bson:"name"`
-	Price  *uint64            `json:"price" bson:"price"`
-	Rating *uint8             `json:"rating" bson:"rating"`
-	Image  *string            `json:"image" bson:"image"`
-}*/
-
 type Address struct {
 	ID      primitive.ObjectID `json:"_id" bson:"_id"`
 	House   *string            `json:"house" bson:"house"`
 	Street  *string            `json:"street" bson:"street"`
-	City    *string            `json:"city" bson:"street"`
-	Pincode *string            `json:"pincode" bson:"street"`
+	City    *string            `json:"city" bson:"city"`
+	Pincode *string            `json:"pincode" bson:"pincode"`
 }
 
 type Order struct {
