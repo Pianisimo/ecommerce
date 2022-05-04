@@ -66,16 +66,19 @@ func ValidateToken(signedToken string) (claims *SignedDetails, msg string) {
 			return []byte(SECRET_KEY), nil
 		})
 	if err != nil {
-		return nil, err.Error()
+		msg = err.Error()
+		return
 	}
 
 	claims, ok := token.Claims.(*SignedDetails)
 	if !ok {
-		return nil, "the token is invalid"
+		msg = "the token is invalid"
+		return
 	}
 
 	if claims.ExpiresAt < time.Now().Local().Unix() {
-		return nil, "token already expired"
+		msg = "token already expired"
+		return
 	}
 
 	return claims, msg
